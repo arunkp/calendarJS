@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+}
+
+@mixin clearfix() {
+    &::after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+}
+
+.page-title {
+    margin: 0 15px;
+    padding: 30px 0;
+}
+
+.container {
+    max-width: 768px;
+    margin: auto;
+    .row {
+        @include clearfix;
+        .control-group {
+            padding: 10px;
+            float: left;
+            width: 33.33%;
+            select,
+            input {
+                border: 1px solid #E0E0E0;
+                height: 42px;
+                border-radius: 4px;
+                color: #444;
+                font-size: 16px;
+                font-weight: 500;
+                width: 100%;
+                display: block;
+                text-indent: 15px;
+            }
+            select {
+                background: #F5F5F5;
+            }
+
+            .btn {
+                display: block;
+                height: 42px;
+                background: #2ecc71;
+                border-radius: 4px;
+                color: #FFFFFF;
+                border: none;
+                width: 100%;
+                padding: 0 25px;
+                font-size: 16px;
+                font-weight: 500;
+                text-align: center; // width: 100%;
+            }
+        }
+    }
+    .calendar {
+        .date-list {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            th {
+            	text-align: right;
+            	width: 100px;
+            	text-transform: uppercase;
+            }
+            td {
+                height: 100px;
+                width: 100px;
+                text-align: right;
+            }
+        }
+    }
+}

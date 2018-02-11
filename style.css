@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px; }
+
+.page-title {
+  margin: 0 15px;
+  padding: 30px 0; }
+
+.container {
+  max-width: 768px;
+  margin: auto; }
+  .container .row::after {
+    display: block;
+    content: "";
+    clear: both; }
+  .container .row .control-group {
+    padding: 10px;
+    float: left;
+    width: 33.33%; }
+    .container .row .control-group select,
+    .container .row .control-group input {
+      border: 1px solid #E0E0E0;
+      height: 42px;
+      border-radius: 4px;
+      color: #444;
+      font-size: 16px;
+      font-weight: 500;
+      width: 100%;
+      display: block;
+      text-indent: 15px; }
+    .container .row .control-group select {
+      background: #F5F5F5; }
+    .container .row .control-group .btn {
+      display: block;
+      height: 42px;
+      background: #2ecc71;
+      border-radius: 4px;
+      color: #FFFFFF;
+      border: none;
+      width: 100%;
+      padding: 0 25px;
+      font-size: 16px;
+      font-weight: 500;
+      text-align: center; }
+  .container .calendar .date-list {
+    padding: 0;
+    margin: 0;
+    width: 100%; }
+    .container .calendar .date-list th {
+      text-align: right;
+      width: 100px;
+      text-transform: uppercase; }
+    .container .calendar .date-list td {
+      height: 100px;
+      width: 100px;
+      text-align: right; }
+
+/*# sourceMappingURL=style.css.map */
