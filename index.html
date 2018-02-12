@@ -11,15 +11,15 @@
     <div class="container">
         <h1 class="page-title">Calendar built with Vanilla Javascript</h1>
         <div class="row">
-            <form action="" id="getCal">
+            <form action="" id="calendarForm">
                 <div class="control-group">
                     <select name="month" id="month">
-                        <option value="0" selected>January</option>
+                        <option value="0">January</option>
                         <option value="1">February</option>
                         <option value="2">March</option>
                         <option value="3">April</option>
                         <option value="4">May</option>
-                        <option value="5">June</option>
+                        <option value="5" selected>June</option>
                         <option value="6">July</option>
                         <option value="7">August</option>
                         <option value="8">September</option>
@@ -29,10 +29,10 @@
                     </select>
                 </div>
                 <div class="control-group">
-                    <input autofocus placeholder="yyyy" type="num" name="year" id="year" maxlength="4" minlength="4">
+                    <input autofocus placeholder="yyyy" type="num" name="year" id="year" maxlength="4" minlength="4" value="2018">
                 </div>
                 <div class="control-group">
-                    <button type="submit" class="btn">Show Dates</button>
+                    <button type="submit" id="getCalBtn" class="btn">Show Dates</button>
                 </div>
             </form>
         </div>

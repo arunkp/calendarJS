@@ -49,6 +49,10 @@
 
 docReady(function() {
     var day_names = [];
+    var calendarForm = document.getElementById("calendarForm");
+    var getCalBtn = document.getElementById("getCalBtn");
+    var month = document.getElementById("month");
+    var table = document.getElementById("dates");
 
     function getDaysInMonth(month, year) {
         var date = new Date(year, month, 1);
@@ -63,12 +67,12 @@ docReady(function() {
         return days;
     }
 
-    document.getElementById("getCal").onsubmit = function(e) {
+    function submitForm(e) {
         e.preventDefault();
         var monthSelect,
             monthVal,
-            yearVal,
-            elems = this.elements;
+            yearVal;
+        var elems = calendarForm.elements;
         for (i = 0; i < elems.length; i++) {
             if (elems[i].name == "month") {
                 monthSelect = elems[i];
@@ -84,36 +88,38 @@ docReady(function() {
             document.getElementById("dates").getElementsByTagName('tbody')[0] = "";
             var html = "<tr>";
             for (i = 0; i < days.length; i++) {
-                if(day_names[i] == 0) {
-                  html +='<tr>'
+                if (day_names[i] == 0) {
+                    html += '<tr>'
                 }
                 html += '<td>';
-                html += days[i];
+                html += days[i].split("/")[0];
                 html += '</td>';
-                if(day_names[i] == 6) {
-                  html +='</tr>';
+                if (day_names[i] == 6) {
+                    html += '</tr>';
                 }
             }
             html += "</tr>";
-            prevMonthDays = getDaysInMonth(monthVal-1, yearVal);
-            nextMonthDays = getDaysInMonth(monthVal+1, yearVal);
-            document.getElementById("dates").getElementsByTagName('tbody')[0].innerHTML = html;
-            var firstRow = document.getElementById("dates").getElementsByTagName('tbody')[0].getElementsByTagName('tr')[0].getElementsByTagName('td');
-            var fe = firstRow.length;
-            // for(fe)
-            // for(i=0;i < )
+            prevMonthDays = getDaysInMonth(monthVal - 1, yearVal);
+            nextMonthDays = getDaysInMonth(monthVal + 1, yearVal);
+            table.getElementsByTagName('tbody')[0].innerHTML = html;
+            var firstRow = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[0].getElementsByTagName('td'),
+                firstRowHTML = "";
+            if (firstRow.length > 0) {
+                for (i = 1; i < 8 - firstRow.length; i++) {
+                    firstRowHTML += "<td>";
+                    firstRowHTML += "</td>";
+                }
+                var firstRowinnerHTML = document.getElementById("dates").getElementsByTagName('tbody')[0].getElementsByTagName('tr')[0].innerHTML;
+                document.getElementById("dates").getElementsByTagName('tbody')[0].getElementsByTagName('tr')[0].innerHTML = firstRowHTML + firstRowinnerHTML;
+            }
         } else {
             alert("Please enter a valid Year.");
         }
     }
 
-    function calculateFirstRow(day_names) {
-
-    }
-
-    function initday(day) {
-        var daterow = document.getElementById("dates").getElementsByTagName('tbody')[0];
-        var html = "<tr>";
-    }
+    calendarForm.addEventListener("submit", submitForm, false);
+    getCalBtn.addEventListener("click", submitForm, false);
+    month.addEventListener("change",submitForm,false);
+    getCalBtn.click();
 
 });
